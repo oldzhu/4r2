@@ -1,0 +1,20 @@
+config BR2_PACKAGE_RADARE2_ARCH_SUPPORTS
+        bool
+        default y if BR2_aarch64
+        default y if BR2_arm || BR2_armeb
+
+config BR2_PACKAGE_RADARE2_TARGET_ARCH
+        string
+        default "ARM64" if BR2_aarch64
+        default "ARM" if BR2_arm || BR2_armeb
+
+config BR2_PACKAGE_RADARE2
+	bool "radare2"
+	depends on BR2_PACKAGE_RADARE2_ARCH_SUPPORTS
+	help
+	  it is radare2 package
+
+	  https://github.com/radareorg/radare2
+
+comment "only support build for arm/arm64" 
+	depends on BR2_PACKAGE_RADARE2_ARCH_SUPPORTS
