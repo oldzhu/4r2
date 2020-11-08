@@ -8,7 +8,9 @@
 # p7 TARGET_DIR
 
 if [ $3 == "ARM64" ]; then
-	ls -la $4
+	cd $4
+	make DESTDIR=$7 install
 else
-	ls -la $4
+	cd $4
+	make DESTDIR=$7 install
 fi
